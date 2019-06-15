@@ -1,0 +1,8 @@
+@mixin box{
+  background-color: rgb(255, 255, 255);
+  box-sizing: border-box;
+  color: rgb(0, 0, 0);
+  cursor: default;
+  font: 66.6667% sans-serif;
+  }
+@mixin fo
