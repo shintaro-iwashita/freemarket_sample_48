@@ -1,0 +1,6 @@
+$body-font-size:14px;
+
+@mixin TwoThirds{
+  font-size:inherit;
+  font-size:66.666667% sans-serif;
+}

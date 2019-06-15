@@ -1,24 +1,50 @@
-# README
+## usersテーブル
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+|Column|Type|Options|
+|------|----|-------|
+|nickname|string|null: false|
+|profile|string||
+|email|string|null: false, unique: true|
+|password|string|null: false|
+|point|integer|null: false|
+|goodreputation|integer||
+|mediumreputation|integer||
+|badreputation|integer||
+### Association
+- has_many :products
+-
 
-Things you may want to cover:
+## categoriesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false,unique: true|
+### Association
+- has_many :products
 
-* Ruby version
 
-* System dependencies
+## Productsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|user_id|references|null:false,foreign_key: true|
+|category_id|references|null: false, foreign_key: true|
+|brand_id|references|foreign_key: true|
+|state_id|references|null: false, foreign_key: true|
+|delivfee_id|references|null: false, foreign_key: true|
+|delivmethod_id|references|null: false, foreign_key: true|
+|delivsource_id|references|null: false, foreign_key: true|
+|delivday_id|references|null: false, foreign_key: true|
+|price|integer|null: false|
+|comment|string||
+|Favorite|integer||
+### Association
+- belongs_to :user
+- belongs_to :category
+- has_many :comments
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## commentsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|text|string||
+### Association
+- belongs_to :product
